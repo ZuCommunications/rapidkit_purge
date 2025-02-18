@@ -3,6 +3,13 @@
   "description": "A Drupal recipe to install and configure purge modules.",
   "type": "drupal-recipe",
   "license": "GPL-2.0-or-later",
+  "authors": [
+    {
+      "name": "zu",
+      "homepage": "https://zu.com/"
+    }
+  ],
+  "homepage": "https://github.com/ZuCommunications/rapidkit_purge",
   "require": {
     "drupal/purge": "^3.6",
     "drupal/varnish_purge": "^2.3"
