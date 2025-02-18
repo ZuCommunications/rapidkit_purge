@@ -11,6 +11,8 @@ install:
   - varnish_purger
 
 config:
+  # Any configs that already exist will be skipped.
+  strict: false
   import:
     purge: '*'
   actions:
