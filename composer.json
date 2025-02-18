@@ -1,0 +1,10 @@
+{
+  "name": "zucommunications/rapidkit_purge",
+  "description": "A Drupal recipe to install and configure purge modules.",
+  "type": "drupal-recipe",
+  "license": "GPL-2.0-or-later",
+  "require": {
+    "drupal/purge": "^3.6",
+    "drupal/varnish_purge": "^2.3"
+  }
+}
