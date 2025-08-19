@@ -1,6 +1,6 @@
-name: 'RapidKit Purge Recipe'
-description: 'A recipe for the purge modules for RapidKit.'
-type: 'RapidKit'
+name: "RapidKit Purge Recipe"
+description: "A recipe for the purge modules for RapidKit."
+type: "RapidKit"
 
 install:
   - purge
@@ -9,13 +9,47 @@ install:
   - purge_ui
   - varnish_purge_tags
   - varnish_purger
+  - purge_queuer_coretags
+
+input:
+  hostname-a:
+    data_type: string
+    description: "The hostname that will be used for 'hosted environment a' rakidkit_purge configuration."
+    constraints:
+      NotBlank: []
+    prompt:
+      method: ask
+      arguments:
+        question: "What hostname should be used when setting up 'hosted environment a' rakidkit_purge?"
+    default:
+      source: value
+      value: "rapidkit.lndo.site"
+
+  hostname-b:
+    data_type: string
+    description: "The hostname that will be used for 'hosted environment b' rakidkit_purge configuration."
+    constraints:
+      NotBlank: []
+    prompt:
+      method: ask
+      arguments:
+        question: " What hostname should be used when setting up 'hosted environment b' rakidkit_purge?"
+    default:
+      source: value
+      value: "rapidkit.lndo.site"
 
 config:
   # Any configs that already exist will be skipped.
   strict: false
   import:
-    purge: '*'
+    purge: "*"
   actions:
+    varnish_purger.settings.server_1a:
+      simpleConfigUpdate:
+        hostname: ${hostname-a}
+    varnish_purger.settings.server_1b:
+      simpleConfigUpdate:
+        hostname: ${hostname-b}
     system.performance:
       simpleConfigUpdate:
         cache.page.max_age: 31536000
