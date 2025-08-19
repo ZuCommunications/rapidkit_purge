@@ -1,19 +1,18 @@
 langcode: en
 status: true
-dependencies: {  }
+dependencies: {}
 id: local
-name: 'Local Varnish'
+name: "Local Varnish"
 invalidationtype: tag
 hostname: varnish
 port: 80
 path: /
 request_method: BAN
 scheme: http
-verify: '1'
+verify: "1"
 headers:
-  -
-    field: Cache-Tags
-    value: '[invalidations:separated_pipe]'
+  - field: Cache-Tags
+    value: "[invalidations:separated_pipe]"
 body: null
 body_content_type: null
 runtime_measurement: true
